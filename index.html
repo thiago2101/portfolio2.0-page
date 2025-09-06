@@ -1,11 +1,581 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Carlos Silva - Editor e Produtor de Vídeos</title>
+    <style>
+        /* Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #ff073a;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #ff073a;
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        /* Header */
+        header {
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ff073a;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: #fff;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff073a;
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ff073a;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23222"/><path d="M0 0L100 100" stroke="%23333" stroke-width="2"/><path d="M100 0L0 100" stroke="%23333" stroke-width="2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ff073a;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            background-color: #ff385c;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 7, 58, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #ff073a;
+            color: #ff073a;
+        }
+        
+        .btn-outline:hover {
+            background-color: #ff073a;
+            color: white;
+        }
+        
+        /* Sobre */
+        .sobre-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .sobre-texto {
+            flex: 1;
+        }
+        
+        .sobre-texto h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #ff073a;
+        }
+        
+        .sobre-texto p {
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+        
+        .habilidades {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .habilidade {
+            background-color: #1a1a1a;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+        
+        /* Serviços */
+        #servicos {
+            background-color: #111;
+        }
+        
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .servico {
+            background-color: #1a1a1a;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            border-bottom: 4px solid #ff073a;
+        }
+        
+        .servico:hover {
+            transform: translateY(-10px);
+        }
+        
+        .servico h3 {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            color: #ff073a;
+        }
+        
+        .servico p {
+            color: #ccc;
+        }
+        
+        .icone-servico {
+            font-size: 3rem;
+            color: #ff073a;
+            margin-bottom: 20px;
+        }
+        
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 7, 58, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .portfolio-item:hover .overlay {
+            opacity: 1;
+        }
+        
+        .overlay h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .overlay p {
+            color: #f0f0f0;
+        }
+        
+        /* Contato */
+        #contato {
+            background-color: #111;
+        }
+        
+        .contato-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contato-info {
+            margin-bottom: 40px;
+        }
+        
+        form {
+            display: grid;
+            gap: 20px;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 5px;
+            color: white;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: #ff073a;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        button:hover {
+            background-color: #ff385c;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 50px 0 20px;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+        
+        .social-links {
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            color: #f0f0f0;
+            margin: 0 15px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #ff073a;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 10px 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .sobre-content {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>Testando site</p>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Carlos<span>Video</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#portfolio">Portfólio</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container hero-content">
+            <h1>Contando histórias através das lentes</h1>
+            <p>Editor e produtor de vídeos especializado em criar conteúdo visual impactante</p>
+            <div>
+                <a href="#portfolio" class="btn">Ver Trabalhos</a>
+                <a href="#contato" class="btn btn-outline">Contato</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre">
+        <div class="container">
+            <h2>Sobre Mim</h2>
+            <div class="sobre-content">
+                <div class="sobre-texto">
+                    <h3>Transformando ideias em experiências visuais</h3>
+                    <p>Olá, sou Carlos Silva, editor e produtor de vídeos com mais de 8 anos de experiência no mercado. Minha paixão é transformar ideias em narrativas visuais cativantes que conectam com o público.</p>
+                    <p>Especializado em edição de vídeos para redes sociais, documentários, videoclipes e conteúdo corporativo, meu objetivo é sempre entregar trabalhos que não apenas atendam, mas superem as expectativas dos clientes.</p>
+                    <p>Acredito que cada projeto é único e merece uma abordagem personalizada para destacar sua essência e transmitir sua mensagem de forma clara e impactante.</p>
+                    
+                    <div class="habilidades">
+                        <span class="habilidade">Edição de Vídeo</span>
+                        <span class="habilidade">Motion Graphics</span>
+                        <span class="habilidade">Color Grading</span>
+                        <span class="habilidade">Pós-produção</span>
+                        <span class="habilidade">Direção</span>
+                        <span class="habilidade">Roteirização</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos">
+        <div class="container">
+            <h2>Meus Serviços</h2>
+            <div class="servicos-grid">
+                <div class="servico">
+                    <div class="icone-servico">🎬</div>
+                    <h3>Edição de Vídeo</h3>
+                    <p>Edição profissional com cortes precisos, transições criativas e ritmo adequado para cada tipo de conteúdo.</p>
+                </div>
+                <div class="servico">
+                    <div class="icone-servico">✨</div>
+                    <h3>Motion Graphics</h3>
+                    <p>Criação de elementos animados, gráficos em movimento e efeitos visuais para engajar seu público.</p>
+                </div>
+                <div class="servico">
+                    <div class="icone-servico">🎨</div>
+                    <h3>Color Grading</h3>
+                    <p>Aplicação de correção de cor e tratamento de imagem para criar atmosferas visuais únicas.</p>
+                </div>
+                <div class="servico">
+                    <div class="icone-servico">📹</div>
+                    <h3>Produção de Conteúdo</h3>
+                    <p>Desenvolvimento de conceitos, roteiros e produção completa de conteúdo audiovisual.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfólio -->
+    <section id="portfolio">
+        <div class="container">
+            <h2>Meu Portfólio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='250' viewBox='0 0 300 250'><rect width='300' height='250' fill='%23333'/><text x='150' y='125' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle'>Documentário</text></svg>" alt="Documentário">
+                    <div class="overlay">
+                        <h3>Documentário</h3>
+                        <p>Direção e edição de documentário sobre cultura urbana</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='250' viewBox='0 0 300 250'><rect width='300' height='250' fill='%23333'/><text x='150' y='125' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle'>Videoclipe</text></svg>" alt="Videoclipe">
+                    <div class="overlay">
+                        <h3>Videoclipe</h3>
+                        <p>Produção e edição de videoclipe para artista independente</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='250' viewBox='0 0 300 250'><rect width='300' height='250' fill='%23333'/><text x='150' y='125' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle'>Corporate</text></svg>" alt="Vídeo Corporativo">
+                    <div class="overlay">
+                        <h3>Vídeo Corporativo</h3>
+                        <p>Edição de vídeo institucional para empresa de tecnologia</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='250' viewBox='0 0 300 250'><rect width='300' height='250' fill='%23333'/><text x='150' y='125' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle'>Eventos</text></svg>" alt="Eventos">
+                    <div class="overlay">
+                        <h3>Cobertura de Eventos</h3>
+                        <p>Captação e edição de evento cultural</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='250' viewBox='0 0 300 250'><rect width='300' height='250' fill='%23333'/><text x='150' y='125' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle'>Social Media</text></svg>" alt="Social Media">
+                    <div class="overlay">
+                        <h3>Conteúdo para Redes Sociais</h3>
+                        <p>Série de vídeos para campanha digital</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='250' viewBox='0 0 300 250'><rect width='300' height='250' fill='%23333'/><text x='150' y='125' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle'>Motion Graphics</text></svg>" alt="Motion Graphics">
+                    <div class="overlay">
+                        <h3>Motion Graphics</h3>
+                        <p>Animação e gráficos em movimento para produto</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <div class="contato-content">
+                <div class="contato-info">
+                    <p>Interessado em trabalhar juntos? Entre em contato para discutirmos seu projeto!</p>
+                </div>
+                <form>
+                    <input type="text" placeholder="Seu nome" required>
+                    <input type="email" placeholder="Seu e-mail" required>
+                    <input type="text" placeholder="Assunto">
+                    <textarea placeholder="Sua mensagem" required></textarea>
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+                <a href="#">Vimeo</a>
+                <a href="#">LinkedIn</a>
+            </div>
+            <p>&copy; 2023 Carlos Silva - Editor e Produtor de Vídeos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>
