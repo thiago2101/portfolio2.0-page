@@ -1,0 +1,23 @@
+.habilidade {
+    background-color: #1a1a1a;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #FFFFFF; /* Texto branco */
+}
+
+.habilidade:hover {
+    background-color: #DEB887;
+    color: #000000; /* Texto preto no hover */
+    transform: translateY(-2px);
+}
+
+.servicos {
+    background-color: #DEB887;
+    color: white;
+    font-size: x-large;
+}
