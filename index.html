@@ -137,7 +137,7 @@
             display: flex;
             align-items: center;
             background: linear-gradient(rgba(255,222,173), rgba(0, 0, 0, 0.7)), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height='100' fill='%23222'/><path d='M0 0L100 100' stroke='%23333' stroke-width='2'/><path d='M100 0L0 100' stroke='%23333' stroke-width='2'/></svg>');
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23222"/><path d="M0 0L100 100" stroke="%23333" stroke-width="2"/><path d="M100 0L0 100" stroke="%23333" stroke-width="2"/></svg>');
             background-size: cover;
             background-position: center;
             position: relative;
@@ -163,7 +163,7 @@
         
         .btn {
             display: inline-block;
-            background-color: #DEB887;
+            background-color: 	#DEB887;
             color: white;
             padding: 15px 40px;
             text-decoration: none;
@@ -176,19 +176,19 @@
         }
         
         .btn:hover {
-            background-color: #DEB887;
+            background-color: 	#DEB887;
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
         }
         
         .btn-outline {
             background-color: transparent;
-            border: 2px solid #DEB887;
-            color: #DEB887;
+            border: 2px solid 	#DEB887;
+            color: 	#DEB887;
         }
         
         .btn-outline:hover {
-            background-color: #DEB887;
+            background-color: 	#DEB887;
             color: white;
         }
         
@@ -206,7 +206,7 @@
         .sobre-texto h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
-            color: #DEB887;
+            color: 	#DEB887;
         }   
         
         .sobre-texto p {
@@ -226,22 +226,11 @@
             padding: 10px 20px;
             border-radius: 30px;
             font-size: 0.9rem;
-            display: inline-block;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: white;
-        }
-        
-        .habilidade:hover {
-            background-color: #DEB887;
-            color: #000;
-            transform: translateY(-2px);
         }
         
         /* Serviços */
         #servicos {
-            background-color: #DEB887;
+            background-color: 	#DEB887;
         }
         
         .servicos-grid {
@@ -251,12 +240,12 @@
         }
         
         .servico {
-            background-color: #1a1a1a;
+            background-color:   #1a1a1a;
             padding: 40px 30px;
             border-radius: 10px;
             text-align: center;
             transition: transform 0.3s;
-            border-bottom: 4px solid #DEB887;
+            border-bottom: 4px solid 	#DEB887;
         }
         
         .servico:hover {
@@ -266,7 +255,7 @@
         .servico h3 {
             font-size: 1.5rem;
             margin: 20px 0;
-            color: #DEB887;
+            color: 	#DEB887;
         }
         
         .servico p {
@@ -275,7 +264,7 @@
         
         .icone-servico {
             font-size: 3rem;
-            color: #DEB887;
+            color: 	#DEB887;
             margin-bottom: 20px;
         }
         
@@ -372,7 +361,7 @@
         }
         
         button {
-            background-color: #DEB887;
+            background-color: 	#DEB887;
             color: white;
             border: none;
             padding: 15px;
@@ -386,7 +375,7 @@
         }
         
         button:hover {
-            background-color: #1a1a1a;
+            background-color: 	#1a1a1a;
         }
         
         /* Footer */
@@ -410,7 +399,7 @@
         }
         
         .social-links a:hover {
-            color: #DEB887;
+            color: 	#DEB887;
         }
         
         /* Responsividade */
@@ -487,7 +476,7 @@
     <!-- Sobre -->
     <section id="sobre">
         <div class="container">
-            <h2 style="color: #000;">Sobre Mim</h2>
+            <h2>Sobre Mim</h2>
             <div class="sobre-content">
                 <div class="sobre-texto">
                     <h3> Quem sou eu?</h3>
@@ -506,9 +495,10 @@
 </p>
                     
                     <div class="habilidades">
-                        <a href="#servico-edicao" class="habilidade">Edição de Vídeo</a>
-                        <a href="#servico-gravacao" class="habilidade">Gravação</a>
-                        <a href="#servico-storymaker" class="habilidade">Storymaker</a>
+                        <span class="habilidade">Edição de Vídeo</span>
+                        <span class="habilidade">Gravação</span>
+                        <span class="habilidade">Storymaker</span>
+
                     </div>
                 </div>
             </div>
@@ -520,17 +510,17 @@
         <div class="container">
             <h2>Meus Serviços</h2>
             <div class="servicos-grid">
-                <div class="servico" id="servico-edicao">
+                <div class="servico">
                     <div class="icone-servico">🎬</div>
                     <h3>Edição de Vídeo</h3>
                     <p>Edição profissional com cortes precisos, transições criativas e ritmo adequado para cada tipo de conteúdo.</p>
                 </div>
-                <div class="servico" id="servico-gravacao">
+                <div class="servico">
                     <div class="icone-servico">📸</div>
                     <h3>Gravação</h3>
                     <p>Criação vídeos com o objetivo de atrair e engajar o público, seja para atrair clientes, explicar produtos ou registrar eventos. </p>
                 </div>
-                <div class="servico" id="servico-storymaker">
+                <div class="servico">
                     <div class="icone-servico">🤳</div>
                     <h3>Storymaker</h3>
                     <p> O objetivo é conectar marcas e pessoas com o público através de mensagens autênticas e estratégicas, contando histórias visuais que representem a sua essência. </p>
@@ -542,7 +532,68 @@
     <!-- Portfólio -->
     <section id="portfolio">
         <div class="container">
-            <h2 style="color: #000;">Meu Portfólio</h2>
+            <h2>Meu Portfólio</h2>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='250' viewBox='0 0 300 250'><rect width='300' height
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='250' viewBox='0 0 300 250'><rect width='300' height='250' fill='%23333'/><text x='150' y='125' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle'>Videoclipe</text></svg>" alt="Videoclipe">
+                    <div class="overlay">
+                        <h3>Videoclipe</h3>
+                        <p>Produção e edição de videoclipe para artista independente</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='250' viewBox='0 0 300 250'><rect width='300' height='250' fill='%23333'/><text x='150' y='125' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle'>Corporate</text></svg>" alt="Vídeo Corporativo">
+                    <div class="overlay">
+                        <h3>Vídeo Corporativo</h3>
+                        <p>Edição de vídeo institucional para empresa de tecnologia</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='250' viewBox='0 0 300 250'><rect width='300' height='250' fill='%23333'/><text x='150' y='125' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle'>Eventos</text></svg>" alt="Eventos">
+                    <div class="overlay">
+                        <h3>Cobertura de Eventos</h3>
+                        <p>Captação e edição de evento cultural</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='250' viewBox='0 0 300 250'><rect width='300' height='250' fill='%23333'/><text x='150' y='125' font-family='Arial' font-size='20' fill='%23fff' text-anchor='middle'>Social Media</text></svg>" alt="Social Media">
+                    <div class="overlay">
+                        <h3>Conteúdo para Redes Sociais</h3>
+                        <p>Série de vídeos para campanha digital</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <div class="contato-content">
+                <div class="contato-info">
+                    <p>Interessado em trabalhar juntos? Entre em contato para discutirmos seu projeto!</p>
+                </div>
+                <form>
+                    <input type="text" placeholder="Seu nome" required>
+                    <input type="email" placeholder="Seu e-mail" required>
+                    <input type="text" placeholder="Assunto">
+                    <textarea placeholder="Sua mensagem" required></textarea>
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/a.limaleticia/">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+            <p>&copy; 2025 Leticia Lima - Editora e Produtora de Vídeos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
